@@ -1,4 +1,4 @@
-variable "aws_security_group" {
-  type = string
-  
+variable "port_number" {
+  type = number
+  default = 22
 }
