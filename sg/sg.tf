@@ -1,12 +1,12 @@
-resource "aws_security_group" "allow_tls" {
-  name        = "allow_tls"
+ resource "aws_security_group" "allow_tls1" {
+  name        = "allow_tls1"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.main.id
+#   vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "TLS from VPC"
-    from_port        = 443
-    to_port          = 443
+    from_port        = var.port_number
+    to_port          = var.port_number
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
@@ -21,6 +21,6 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "allow_tls1"
   }
 }
